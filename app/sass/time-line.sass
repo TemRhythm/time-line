@@ -1,0 +1,96 @@
+.time-line
+  position: relative
+  font-family: "open-gost", sans-serif
+  font-size: 22px
+  &:after
+    content: ''
+    position: absolute
+    width: 2px
+    background-color: #2ea490
+    top: 0
+    bottom: 0
+    left: 50%
+    margin-left: -1px
+  .time-line-item
+    position: relative
+    width: 50%
+    padding: 30px
+    &:before
+      content: " "
+      height: 2px
+      position: absolute
+      right: 0
+      top: 65px
+      width: 30px
+      background-color: #2ea490
+      z-index: 1
+    &:after
+      content: ''
+      position: absolute
+      width: 30px
+      height: 30px
+      right: -15px
+      background-color: #2ea490
+      border: 4px solid #2ea490
+      top: 50px
+      border-radius: 50%
+      z-index: 1
+    &.time-line-item-left
+      left: 0
+      .time-line-item-icon
+        float: right
+    &.time-line-item-right
+      left: 50%
+      .time-line-number
+        left: -15px
+      .time-line-item-content
+        text-align: left
+        margin-left: 25px
+      &:before
+        left: 0
+      &:after
+        left: -15px
+    .time-line-item-icon, .time-line-item-content
+      display: inline-block
+      vertical-align: top
+    .time-line-item-icon
+      width: 74px
+      img
+        width: 100%
+    .time-line-item-content
+      display: inline-block
+      width: 400px
+      text-align: right
+      .time-line-item-title
+        color: #2ea490
+        font-weight: 700
+        font-size: 30px
+        margin-top: 10px
+      .time-line-item-text
+        margin-top: 5px
+    .time-line-number
+      color: #ffffff
+      position: absolute
+      top: 50px
+      font-size: 19px
+      width: 30px
+      height: 30px
+      right: -15px
+      z-index: 2
+      text-align: center
+
+
+@media screen and (max-width: 991px)
+  .time-line
+    .time-line-item
+      .time-line-item-content
+        width: 300px
+      &.time-line-item-right
+        .time-line-item-content
+          margin-left: 0
+
+@media screen and (max-width: 767px)
+  .time-line
+    .time-line-item
+      .time-line-item-content
+        width: 100%
