@@ -11,7 +11,7 @@
     width: 2px
     background-color: $accent
     top: 75px
-    bottom: 200px
+    bottom: 470px
     left: 50%
     margin-left: -1px
   .time-line-item
@@ -53,8 +53,10 @@
         left: 0
       &:after
         left: -15px
-    &:not(:first-child)
-      margin-top: -300px
+    &:nth-child(even)
+      margin-top: -200px
+    &:nth-child(odd):not(:first-child)
+      margin-top: -100px
     .time-line-item-icon, .time-line-item-content
       display: inline-block
       vertical-align: top
@@ -97,12 +99,12 @@
 @media screen and (max-width: 1199px)
   .time-line
     &:after
-      bottom: 250px
+      bottom: 550px
 
 @media screen and (max-width: 991px)
   .time-line
     &:after
-      bottom: 320px
+      bottom: 700px
     .time-line-item
       .time-line-item-content
         width: 300px
@@ -114,7 +116,7 @@
   .time-line
     &:after
       left: 20px
-      bottom: 32%
+      bottom: 31%
     .time-line-item
       width: 100%
       &.time-line-item-right, &.time-line-item-left
@@ -134,3 +136,9 @@
           width: 100%
           text-align: left
           margin-left: 25px
+
+
+@media screen and (max-width: 450px)
+  .time-line
+    &:after
+      bottom: 34%
