@@ -1,3 +1,6 @@
+@import "_mixins/long-shadow"
+@import "vars"
+
 .time-line
   position: relative
   font-family: "open-gost", sans-serif
@@ -6,9 +9,9 @@
     content: ''
     position: absolute
     width: 2px
-    background-color: #2ea490
-    top: 0
-    bottom: 0
+    background-color: $accent
+    top: 75px
+    bottom: 200px
     left: 50%
     margin-left: -1px
   .time-line-item
@@ -22,7 +25,7 @@
       right: 0
       top: 65px
       width: 30px
-      background-color: #2ea490
+      background-color: $accent
       z-index: 1
     &:after
       content: ''
@@ -30,8 +33,8 @@
       width: 30px
       height: 30px
       right: -15px
-      background-color: #2ea490
-      border: 4px solid #2ea490
+      background-color: $accent
+      border: 4px solid $accent
       top: 50px
       border-radius: 50%
       z-index: 1
@@ -50,19 +53,31 @@
         left: 0
       &:after
         left: -15px
+    &:not(:first-child)
+      margin-top: -300px
     .time-line-item-icon, .time-line-item-content
       display: inline-block
       vertical-align: top
     .time-line-item-icon
       width: 74px
+      height: 74px
+      border-radius: 50%
+      background-color: $accent
+      color: #ffffff
+      text-align: center
+      overflow: hidden
       img
         width: 100%
+      i
+        line-height: 74px
+        font-size: 30px
+        @include long-shadow(darken($accent, 7%))
     .time-line-item-content
       display: inline-block
       width: 400px
       text-align: right
       .time-line-item-title
-        color: #2ea490
+        color: $accent
         font-weight: 700
         font-size: 30px
         margin-top: 10px
@@ -79,9 +94,15 @@
       z-index: 2
       text-align: center
 
+@media screen and (max-width: 1199px)
+  .time-line
+    &:after
+      bottom: 250px
 
 @media screen and (max-width: 991px)
   .time-line
+    &:after
+      bottom: 320px
     .time-line-item
       .time-line-item-content
         width: 300px
@@ -91,6 +112,25 @@
 
 @media screen and (max-width: 767px)
   .time-line
+    &:after
+      left: 20px
+      bottom: 32%
     .time-line-item
-      .time-line-item-content
-        width: 100%
+      width: 100%
+      &.time-line-item-right, &.time-line-item-left
+        left: 0
+        &:not(:first-child)
+          margin-top: -50px
+        &:before
+          left: 20px
+        &:after
+          left: 5px
+        .time-line-number
+          left: 5px
+        .time-line-item-icon
+          float: left
+          margin-left: 20px
+        .time-line-item-content
+          width: 100%
+          text-align: left
+          margin-left: 25px
